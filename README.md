@@ -26,7 +26,7 @@ The nominally 16ohm (tests show 12ohm) B&C DCX are 111db/W and the SH9 will put 
 For the analog input measurements I use a Behringer ECM8000 measurement condenser mic that connects with an XLR plug to a Motu M4 audio interface. I use loopback in the M4 to provide reference timing. A miniDSP UMIC will work just as well with acoustic timing for reference, an advantage of the Behringer and Motu M4 is that I can also use Open Sound Meter, a disadvantage is that I must calibrate the sound level of the Behringer each measurement session.
 
 *** Photo of laptops running REW USB mic and and Motu M4 setup for XLR mic.
-
+![alt text](<Images/K-Horn with measurement PCs.JPG>)
 
 For the didgital stream measurements I use a miniDSP UMIC and the REW acoustic timing reference recorded on the sweep.
 Software used is REW V5.30.x and Rephase 1.4.3 . I run all this on Win 11 on an Asus Zenbook laptop and use WinSCP for file transfer from Laptop to CamillaDSP 2.0.1 on an RPi 5. Both CamillaDSP and my laptop are on a LAN.
@@ -34,7 +34,7 @@ Software used is REW V5.30.x and Rephase 1.4.3 . I run all this on Win 11 on an 
 Measurements are taken with the tip of the microphone 1m from the centre of the Eliptrac horn which is 118cm off the floor. This microphone position is generally accepted in the Klipsch community for measuring K-Horns as it all but eliminates room reflections. The listening room is 6.5m wide by 10.8m long with 2.6m ceiling. The flooring is polished hardwood with extensive rug covering, couches and furnishings. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
 
 *** Photo of K-Horns and Mics.
-
+![alt text](<Images/K-Horn with mics.JPG>)
 
 The basic procedure I followed is -
 1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP can import the REW measurements direct to the Config file).
