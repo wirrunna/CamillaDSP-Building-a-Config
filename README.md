@@ -70,16 +70,30 @@ Thank you Henrik for CamillaDSP and Michael for his tutorial on setting up Camil
 
 Links :
 https://www.roomeqwizard.com/
+
 https://www.avnirvana.com/forums/official-rew-room-eq-wizard-support-forum.10/
+
 https://rephase.org/
+
 https://winscp.net/eng/download.php
+
 https://community.klipsch.com/index.php?/topic/117543-active-bi-ampingtri-amping-faq/#comments
+
 https://www.avnirvana.com/resources/getting-started-with-rew-a-step-by-step-guide.19/
+
 https://www.avnirvana.com/threads/some-guides-to-rew-and-acoustic-measurement.121/
+
 https://audiophilestyle.com/forums/topic/30035-using-rew-and-rephase-to-generate-amplitude-and-time-domain-corrections/?tab=comments#comment-604620
+
 Links to Linear Phase discussions :
+
 https://mynewmicrophone.com/the-complete-guide-to-linear-phase-equalization-eq/
+
 https://www.linkwitzlab.com/Attributes_Of_Linear_Phase_Loudspeakers.pdf
+
 https://community.klipsch.com/index.php?/topic/182419-subconscious-auditory-effects-of-quasi-linear-phase-loudspeakers/
+
+
 Link to development of the Eliptrac horn
+
 https://community.klipsch.com/index.php?/topic/122814-round-tractrix/
