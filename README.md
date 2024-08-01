@@ -11,7 +11,7 @@ This is not the only way to build a config, the methods and options I have chose
 
 While not aiming to be another tutorial on using REW and rePhase, there are a lot of  measurements shown as screengrabs with the settings and some comments on the process and parameters. REW has excellent help and there are good tutorials on the web, rePhase also has some good tutorials on the web. 
 
-Klipschorns are vintage horn loaded speakers with low distortion and high efficiency, however they suffer from driver time alignment differences due to different horn lengths and the folded bass horn results in lumpy SPL response, making them ideal candidates for tri-amped DSP systems smoothing SPL responses, time aligning the drivers, providing crossover networks and flattening driver phase response.
+Klipschorns are vintage horn loaded speakers with low distortion and high efficiency, however due to different horn lengths there are driver time alignment differences  and the folded bass horn results in a lumpy SPL response making them ideal candidates for a tri-amped DSP system smoothing SPL responses, time aligning the drivers, providing crossover networks and flattening driver phase response.
 
 The stock Klipsch bass horn is about 105db/W and falls of after 400Hz.
 My K-Horn mods are a new top hat using B&C DCX464 coax mid/hi drivers mounted on an Eliptrac horn. The B&C DCX464 is a 111db/W 1.4" compression horn with a 290-20,000Hz response, the Eliptrac horn is an eliptical tractrix kit horn with a Fc of 320Hz made from CNC machined MDF and was designed as a replacement for the K400 mid horn in Klipsch heritage speakers. One advantage of using a coax from a seperate tweeter is that the mid and hi use the same delay for time alignment. Due to horn length the mid and hi are delayed by 5 msec (far more than a standard 3 driver box) and I show how to determine this and the DSP filters required for time alignment.
@@ -26,13 +26,11 @@ The nominally 16ohm (tests show 12ohm) B&C DCX are 111db/W and the SH9 will put 
 
 For the analog input measurements I use a Behringer ECM8000 measurement condenser mic that connects with an XLR plug to a Motu M4 audio interface. I use loopback in the M4 to provide reference timing. A miniDSP UMIC will work just as well with acoustic timing for reference, an advantage of the Behringer and Motu M4 is that I can also use Open Sound Meter, a disadvantage is that I must calibrate the sound level of the Behringer each measurement session.
 
-*** Photo of laptops running REW USB mic and and Motu M4 setup for XLR mic.
-![alt text](<Images/K-Horn with measurement PCs.JPG>)
 
 For the didgital stream measurements I use a miniDSP UMIC and the REW acoustic timing reference recorded on the sweep.
 Software used is REW V5.30.x and Rephase 1.4.3 . I run all this on Win 11 on an Asus Zenbook laptop and use WinSCP for file transfer from Laptop to CamillaDSP 2.0.1 on an RPi 5. Both CamillaDSP and my laptop are on a LAN.
 
-Measurements are taken with the tip of the microphone 1m from the centre of the Eliptrac horn which is 118cm off the floor. This microphone position is generally accepted in the Klipsch community for measuring K-Horns as it all but eliminates room reflections. The listening room is 6.5m wide by 10.8m long with 2.6m ceiling. The flooring is polished hardwood with extensive rug covering, couches and furnishings. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
+Measurements are taken with the tip of the microphone 1m from the centre of the Eliptrac horn which is 118cm off the floor. This microphone position is generally accepted in the Klipsch community for measuring K-Horns as it all but eliminates room reflections. The listening room is 6.5m wide by 10.8m long with 2.6m ceiling. The flooring is polished hardwood with extensive rug covering, couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
 
 *** Photo of K-Horns and Mics.
 ![alt text](<Images/K-Horn with mics.JPG>)
@@ -64,6 +62,64 @@ The basic procedure I followed is -
 
 
 6. Stream input - show measurements and and resulting working configuration
+
+
+
+
+To someone starting out there are questions like how do you measure, what are the amp to computer etc connections.
+DSP to amplifier setup.
+My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog. JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and fed to CamillaDSP for processing. The processed digital streams are converted to analog by the Motu Ultralite and balanced analog is fed to the amplifiers.
+A simple remote and a FLIRC provide source selection and volume control.
+Pic of RPi running CamillaDSP including FLIRC and display with remote in front.
+
+
+Pic of RPi from top with box top off.
+Pic of UL5 showing TRS plugs
+Pic of amps - N-Core for bass, SMSL headphone amp for Hi, Topping LA90 for mid and Motu UL5.
+ 
+Measuring setup.
+1. REW
+For measurement I use a Behringer ECM8000 mic connected to a Motu M4 audio interface, also there is a UMIC-1 connected to a second pc via USB. 
+This pic shows the two mics in a retort stand in front of the right K-Horn, dog bed reflection absorber on the floor between the speaker and the mics.
+![alt text](<Images/K-Horn with mics.JPG>) 
+
+This pic is of the two pcs with the Motu M4, speaker under measurement in the background.
+![alt text](<Images/K-Horn with measurement PCs.JPG>) 
+
+
+Setting up for Umik-1 USB mic.
+REW prefs for Umik-1, first in the 'Soundcard' tab select your microphone. 
+ 
+In the 'Cal files' tab select the Umik-1 calibration file, then in the 'Analysis' tab set these defaults.
+ 
+Finally, in the 'Equaliser' tab select CamillaDSP which REW will use to determine the number of IIR filters for EQ and the behaviour of the save files routines to suit CamillaDSP.
+Seting up for Behringer ECM8000 mic.
+Motu M4 front connections, IN1 - Loopback cable TRS plug, IN2 - Mic via XLR plug.
+ 
+and back showing Line Out TRS sockets - 3L Loopback cable to Front, 4R TRS to Motu Ultralight Mk5 / CamillaDSP and USB to PC.
+ 
+
+
+
+In REW Preferences, Soundcard 
+and Analysis - note Adjust clock with loopback ticked
+ 
+
+and in Preferences Equaliser - I set default equaliser to CamillaDSP
+ REW Preferences - Equaliser.jpg
+
+2. CamillaDSP
+In CamillaDSP I load a config with no filters, the analog TRS plug from the Motu M4 goes into ch2 for Left or ch3 for Right
+The Pipeline -
+ 
+UL5 analog - Blank.yml.jpg
+and in the Mixer I mute all outputs except the one I am measuring.
+ 
+CamillaDSP showing muted channels with "destination 3" (channel 3) open for measuring.jpg
+
+
+
+
 
 Flat Excess Phase is still a contentious issue so I have provided a couple of links for reading.
 
