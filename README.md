@@ -70,15 +70,15 @@ To someone starting out there are questions like how do you measure, what are th
 DSP to amplifier setup.
 My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog. JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and fed to CamillaDSP for processing. The processed digital streams are converted to analog by the Motu Ultralite and balanced analog is fed to the amplifiers.
 A simple remote and a FLIRC provide source selection and volume control.
-Pic of RPi running CamillaDSP including FLIRC and display with remote in front.
+Pic of RPi display running CamillaDSP and JiveLite with remote in front.
+![alt text](<Images/10.1 screen front on shelf.jpg>)
 
 
-Pic of RPi from top with box top off.
-Pic of UL5 showing TRS plugs
 Pic of amps - N-Core for bass, SMSL headphone amp for Hi, Topping LA90 for mid and Motu UL5.
+![alt text](<Images/Motu UL5 and amps.JPG>)
  
 Measuring setup.
-1. REW
+1. Microphones.
 For measurement I use a Behringer ECM8000 mic connected to a Motu M4 audio interface, also there is a UMIC-1 connected to a second pc via USB. 
 This pic shows the two mics in a retort stand in front of the right K-Horn, dog bed reflection absorber on the floor between the speaker and the mics.
 ![alt text](<Images/K-Horn with mics.JPG>) 
