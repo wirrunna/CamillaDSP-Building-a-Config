@@ -68,7 +68,7 @@ Measurements are taken with the tip of the microphone 1m from the centre of the 
 *** Photo of K-Horns and Mics.
 ![alt text](<Images/K-Horn with mics.JPG>)
 
-
+Room size is 10.8m (35feet) long by 6.5m (21feet) wide, ceiling is 2.6m high. The waterfall plot shows the bass room resonance around 30Hz, the SPL kick at 140Hz is a KHorn design feature.
 
 To someone starting out there are questions like how do you measure, what are the amp to computer etc connections.
 DSP to amplifier setup.
