@@ -11,34 +11,45 @@ This is not the only way to build a config, the methods and options I have chose
 
 While not aiming to be another tutorial on using REW and rePhase, there are a lot of  measurements shown as screengrabs with the settings and some comments on the process and parameters. REW has excellent help and there are good tutorials on the web, rePhase also has some good tutorials on the web. 
 
+K-Horn with AK-3 SPL
+![alt text](<Images/K-Horn measurement AK-3 passive xover.jpg>)
 
 The basic procedure I followed is -
-1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP can import the REW measurements direct to the Config file).
+1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
+
+
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
 *** REW plots showing Raw and EQ corrected response
-https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
+![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>)
 
 2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). Again, CamillaDSP can directly import rePhase .dbl files into the Config file.
 
-*** Rew plots showing XO response and full system
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
+
+*** Rew plots showing XO response and full system
+![alt text](<Images/Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
 
 3. Using FS measurements, determine gains for each driver and add gain filters to the CamillaDSP pipeline. Determine delays for each driver and add delay filters to the pipeline and measure FS to confirm correct delays and gains. Invert driver phase if needed. Adjust XO frequencies and slopes to give the smoothest summed result while taking advantage of "acoustic crossover" of the drivers.
 
-*** REW plot showing cleaned up response
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-3-Set-Gains-and-Delays
+
+*** REW plot showing cleaned up response
+![alt text](<Images/Dec 5 9 T31 84db Gains Biquads XOs 5ms delay and Inv Phase for Mid and Hi.jpg>)
 
 4. Extract a measurement of Excess Phase from a FS measurement and Export it for input to rePhase (thank you fluid). Using previously saved XO settings for mid and hi drivers, import the Excess Phase measurement into rePhase and manipulate the phase to get the Excess Phase close to zero. Replace the XO filter with the new XO and PF (Phase Fix) in the Pipeline. Measure FS to confirm o (zero) degree Excess Phase. As stated earlier, due to phase differences between analog and digital stream inputs I made seperate config files for analog input and stream input.
 
-*** REW plot of PF flat phase
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-4-Get-Excess-Phase-to-Zero
+
+*** REW plot of PF flat phase
+![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs.jpg>)
 
 5. Add the finishing touches by doing another EQ of the full system to flatten SPL peaks and troughs across the cross over regions. Show how to use the CamillaDSP Bass and Treble filters to provide a room curve.
 
-*** REW plot of working config
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-5-Finishing-Touches
 
-
+*** REW plot of working config
+![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs.jpg>)
 
 
 ### First a description of the equipment and room.
