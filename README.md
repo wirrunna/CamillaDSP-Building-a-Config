@@ -11,16 +11,15 @@ This is not the only way to build a config, the methods and options I have chose
 
 While not aiming to be another tutorial on using REW and rePhase, there are a lot of  measurements shown as screengrabs with the settings and some comments on the process and parameters. REW has excellent help and there are good tutorials on the web, rePhase also has some good tutorials on the web. 
 
-K-Horn with AK-3 SPL
+K-Horn with AK-3 . This is the starting point, passive XO, no mods bought new in 1990. 
 ![alt text](<Images/K-Horn measurement AK-3 passive xover.jpg>)
 
 The basic procedure I followed is -
 1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
 
-
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
-*** REW plots showing Raw and EQ corrected response
+*** REW plots showing Raw and EQ corrected response with XO.
 ![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>)
 
 2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). Again, CamillaDSP can directly import rePhase .dbl files into the Config file.
