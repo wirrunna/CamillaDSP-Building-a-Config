@@ -112,6 +112,7 @@ In the 'Cal files' tab select the Umik-1 calibration file, then in the 'Analysis
 ![alt text](<Images/REW Prefs for UMIC Soundcard.jpg>)
  
 Finally, in the 'Equaliser' tab select CamillaDSP which REW will use to determine the number of IIR filters for EQ and the behaviour of the save files routines to suit CamillaDSP.
+![alt text](<Images/REW Prefs - Equaliser.jpg>)
 
 Seting up for Behringer ECM8000 mic.
 Motu M4 front connections, IN1 - Loopback cable TRS plug, IN2 - Mic via XLR plug.
@@ -120,14 +121,9 @@ Motu M4 front connections, IN1 - Loopback cable TRS plug, IN2 - Mic via XLR plug
 and back showing Line Out TRS sockets - 3L Loopback cable to Front, 4R TRS to Motu Ultralight Mk5 / CamillaDSP and USB to PC.
 ![alt text](<Images/Motu M4 back.JPG>) 
 
-
-
 In REW Preferences, Soundcard 
 and Analysis - note Adjust clock with loopback ticked
  
-
-and in Preferences Equaliser - I set default equaliser to CamillaDSP
- REW Preferences - Equaliser.jpg
 
 2. CamillaDSP
 In CamillaDSP I load a config with no filters, the analog TRS plug from the Motu M4 goes into ch2 for Left or ch3 for Right
