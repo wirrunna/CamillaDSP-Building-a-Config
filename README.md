@@ -1,5 +1,5 @@
 # CamillaDSP-Building-a-Config
-Building a config for a 3 way Xover with Driver Time Alignment using REW and rePhase.
+## Building a config for a 3 way Xover with Driver Time Alignment using REW and rePhase.
 
 The aim of this series is to show the procedure I followed to build a config file for a Linear Phase cross over for CamillaDSP to tri-amp a pair of modified Klipschorns. A secondary aim is to provide enough information for someone to follow the procedure to build a CamillaDSP config for their own speakers. 
 
@@ -16,39 +16,37 @@ The basic procedure I followed is -
 1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP can import the REW measurements direct to the Config file).
 
 *** REW plots showing Raw and EQ corrected response
-
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
 2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). Again, CamillaDSP can directly import rePhase .dbl files into the Config file.
 
 *** Rew plots showing XO response and full system
-
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
 
 3. Using FS measurements, determine gains for each driver and add gain filters to the CamillaDSP pipeline. Determine delays for each driver and add delay filters to the pipeline and measure FS to confirm correct delays and gains. Invert driver phase if needed. Adjust XO frequencies and slopes to give the smoothest summed result while taking advantage of "acoustic crossover" of the drivers.
 
 *** REW plot showing cleaned up response
-
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-3-Set-Gains-and-Delays
 
 4. Extract a measurement of Excess Phase from a FS measurement and Export it for input to rePhase (thank you fluid). Using previously saved XO settings for mid and hi drivers, import the Excess Phase measurement into rePhase and manipulate the phase to get the Excess Phase close to zero. Replace the XO filter with the new XO and PF (Phase Fix) in the Pipeline. Measure FS to confirm o (zero) degree Excess Phase. As stated earlier, due to phase differences between analog and digital stream inputs I made seperate config files for analog input and stream input.
 
 *** REW plot of PF flat phase
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-4-Get-Excess-Phase-to-Zero
 
-
-5. Guild the lily by doing another EQ of the full system to flatten SPL peaks and troughs across the cross over regions. Show how to use the CamillaDSP Bass and Treble filters to provide a room curve.
+5. Add the finishing touches by doing another EQ of the full system to flatten SPL peaks and troughs across the cross over regions. Show how to use the CamillaDSP Bass and Treble filters to provide a room curve.
 
 *** REW plot of working config
-
-
-6. Stream input - show measurements and and resulting working configuration
-
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-5-Finishing-Touches
 
 
 
 
-First a description of the equipment and room.
+### First a description of the equipment and room.
 
 Klipschorns are vintage horn loaded speakers with low distortion and high efficiency, however due to different horn lengths there are driver time alignment differences  and the folded bass horn results in a lumpy SPL response making them ideal candidates for a tri-amped DSP system smoothing SPL responses, time aligning the drivers, providing crossover networks and flattening driver phase response.
 
 The stock Klipsch bass horn is about 105db/W and response falls of after 400Hz.
+
 My K-Horn mods are a new top hat using B&C DCX464 coax mid/hi drivers mounted on an Eliptrac horn. The B&C DCX464 is a 111db/W 1.4" compression horn with a 290-20,000Hz response, the Eliptrac horn is an eliptical tractrix kit horn with a Fc of 320Hz made from CNC machined MDF and was designed as a replacement for the K400 mid horn in Klipsch heritage speakers. One advantage of using a coax from a seperate tweeter is that the mid and hi use the same delay for time alignment. Due to horn length the mid and hi are delayed by 5 msec (far more than a standard 3 driver box) and I show how to determine this and the DSP filters required for time alignment.
 
 I am using CamillaDSP with two configurations, one for analog input and the second for streamed content through JiveLite running on the same RPi as CamillaDSP. Switching between the inputs and volume control is done by a remote as detailed in the rpi4-camilladsp-tutorial.
@@ -72,16 +70,21 @@ Room size is 10.8m (35feet) long by 6.5m (21feet) wide, ceiling is 2.6m high. Th
 
 To someone starting out there are questions like how do you measure, what are the amp to computer etc connections.
 DSP to amplifier setup.
-My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog. JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and fed to CamillaDSP for processing. The processed digital streams are converted to analog by the Motu Ultralite and balanced analog is fed to the amplifiers.
+My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
+
+JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and a visual indicator of the volume level.
+
+A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and fed to CamillaDSP for processing. The processed digital streams are converted to analog by the Motu Ultralite and balanced analog is fed to the amplifiers.
+
 A simple remote and a FLIRC provide source selection and volume control.
+
 Pic of RPi display running CamillaDSP and JiveLite with remote in front.
 ![alt text](<Images/10.1 screen front on shelf.jpg>)
-
 
 Pic of amps - bottom left N-Core for bass, top left SMSL headphone amp for Hi, top right Topping LA90 for mid and bottom right Motu UL5. The amp stands are plastic wire coated shelf stands from K-Mart and provide exellent air flow.
 ![alt text](<Images/Motu UL5 and amps.JPG>)
  
-Measuring setup.
+### Measuring setup.
 1. Microphones.
 For measurement I use a Behringer ECM8000 mic connected to a Motu M4 audio interface, also there is a UMIC-1 connected to a second pc via USB. 
 This pic shows the two mics in a retort stand in front of the right K-Horn, dog bed reflection absorber on the floor between the speaker and the mics.
