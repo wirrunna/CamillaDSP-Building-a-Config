@@ -48,7 +48,7 @@ https://github.com/wirrunna/CamillaDSP-Building-a-Config-4-Get-Excess-Phase-to-Z
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-5-Finishing-Touches
 
 *** REW plot of working config
-![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs.jpg>)
+![alt text](<Images/Jun 23 5 T45_A67 FS 77db new pf input peqs.jpg>)
 
 
 ### First a description of the equipment and room.
