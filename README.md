@@ -13,43 +13,48 @@ While not aiming to be another tutorial on using REW and rePhase, there are a lo
 
 K-Horn with AK-3 . This is the starting point, passive XO, no mods bought new in 1990. 
 ![alt text](<Images/K-Horn measurement AK-3 passive xover.jpg>)
+Frequency response like a stage of the Tour de France, phase, well just a few wraparounds.
 
 The basic procedure I followed is -
 1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
-*** REW plots showing Raw and EQ corrected response with XO.
+*** REW plots showing Raw and EQ corrected response for each driver with XO.
 ![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>)
 
 2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). Again, CamillaDSP can directly import rePhase .dbl files into the Config file.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
 
-*** Rew plots showing XO response and full system
+*** Rew plots showing XO response and full system (FS) response
 ![alt text](<Images/Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
 
-3. Using FS measurements, determine gains for each driver and add gain filters to the CamillaDSP pipeline. Determine delays for each driver and add delay filters to the pipeline and measure FS to confirm correct delays and gains. Invert driver phase if needed. Adjust XO frequencies and slopes to give the smoothest summed result while taking advantage of "acoustic crossover" of the drivers.
+3. Using FS measurements, determine gains for each driver to match levels and add gain filters to the CamillaDSP pipeline. Determine delays for each driver and add delay filters to the pipeline and measure FS to confirm correct delays and gains. Invert driver phase if needed. Adjust XO frequencies and slopes to give the smoothest summed result while taking advantage of "acoustic crossover" of the horn drivers.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-3-Set-Gains-and-Delays
 
-*** REW plot showing cleaned up response
+*** REW plot showing cleaned up response after adding gain and delay filters.
 ![alt text](<Images/Dec 5 9 T31 84db Gains Biquads XOs 5ms delay and Inv Phase for Mid and Hi.jpg>)
 
 4. Extract a measurement of Excess Phase from a FS measurement and Export it for input to rePhase (thank you fluid). Using previously saved XO settings for mid and hi drivers, import the Excess Phase measurement into rePhase and manipulate the phase to get the Excess Phase close to zero. Replace the XO filter with the new XO and PF (Phase Fix) in the Pipeline. Measure FS to confirm o (zero) degree Excess Phase. As stated earlier, due to phase differences between analog and digital stream inputs I made seperate config files for analog input and stream input.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-4-Get-Excess-Phase-to-Zero
 
-*** REW plot of PF flat phase
+*** REW plot of Full System with PF flat phase
 ![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs.jpg>)
 
 5. Add the finishing touches by doing another EQ of the full system to flatten SPL peaks and troughs across the cross over regions. Show how to use the CamillaDSP Bass and Treble filters to provide a room curve.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-5-Finishing-Touches
 
-*** REW plot of working config
+Here are some REW plots showing where I got to.
+
+*** REW plot of working config including EQ on the inputs
 ![alt text](<Images/Jun 23 5 T45_A67 FS 77db new pf input peqs.jpg>)
 
+*** REW plot showing Impulse (Step Response)
+![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs Impulse - Step Response.jpg>)
 
 ### First a description of the equipment and room.
 
@@ -63,28 +68,28 @@ I am using CamillaDSP with two configurations, one for analog input and the seco
 
 REW measurements showed some difference between phase response on the digital (streamed) and analog inputs. I measured the streamed digital response according to REW Help, Making Measurements, Measuring with file playback. 
 
-The outputs from the Motu UL5/RPi are balanced analog and feed a single stereo Audiophonics MPA-S125NC 75W N-Core amp for left and right K-Horn bass, a Topping LA90 50W for mid and a SMSL SH9 THX Headphone amp for hi. The nominally 16ohm (tests show 12ohm) B&C DCX are 111db/W and the SH9 will put out 6W into 16ohm and 9W into 8ohm. More than enough power for a domestic system remembering that there are no passive crossovers sucking power. Also, these amps and the Motu UL5 and Raspberry Pi cost about half what I spent a few years ago building an ALK passive steep slope crossover.
+The outputs from the Motu UL5/RPi are balanced analog and feed a single stereo Audiophonics MPA-S125NC 75W N-Core amp for left and right K-Horn bass, a Topping LA90 50W for mid and a SMSL SH9 THX Headphone amp for hi. The nominally 16ohm (tests show 12ohm) B&C DCX are 111db/W and the SH9 will put out 6W into 16ohm and 9W into 8ohm. More than enough power for a domestic system remembering that there are no passive crossovers sucking power. Also, these amps and the Motu UL5 and Raspberry Pi cost about half what I spent a few years ago building an ALK passive steep slope crossovers.
 
 For the analog input measurements I use a Behringer ECM8000 measurement condenser mic that connects with an XLR plug to a Motu M4 audio interface. I use loopback in the M4 to provide reference timing. A miniDSP UMIC will work just as well with acoustic timing for reference, an advantage of the Behringer and Motu M4 is that I can also use Open Sound Meter, a disadvantage is that I must calibrate the sound level of the Behringer each measurement session.
 
 
 For the didgital stream measurements I use a miniDSP UMIC and the REW acoustic timing reference recorded on the sweep.
-Software used is REW V5.30.x and Rephase 1.4.3 . I run all this on Win 11 on an Asus Zenbook laptop and use WinSCP for file transfer from Laptop to CamillaDSP 2.0.1 on an RPi 5. Both CamillaDSP and my laptop are on a LAN.
+Software used is REW V5.30.x and Rephase 1.4.3 . I run all this on Win 11 on an Asus Zenbook laptop. The CamillaDSP RPi5 is on the LAN and its GUI is accessed via Firefox browser. The GUI is used to transfer filters from the Laptop to CamillaDSP on the RPi 5. Both CamillaDSP and my laptop are on a LAN.
 
-Measurements are taken with the tip of the microphone 1m from the centre of the Eliptrac horn which is 118cm off the floor. This microphone position is generally accepted in the Klipsch community for measuring K-Horns as it all but eliminates room reflections. The listening room is 6.5m wide by 10.8m long with 2.6m ceiling. The flooring is polished hardwood with extensive rug covering, couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
+Measurements are taken with the tip of the microphone 1m from the centre of the Eliptrac horn which is 118cm off the floor. This microphone position is generally accepted in the Klipsch community for measuring K-Horns as it all but eliminates room reflections. The listening room is 6.5m wide by 10.8m long with 2.6m ceiling. The flooring is polished hardwood with extensive rug covering; couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
 
 *** Photo of K-Horns and Mics.
 ![alt text](<Images/K-Horn with mics.JPG>)
 
-Room size is 10.8m (35feet) long by 6.5m (21feet) wide, ceiling is 2.6m high. The waterfall plot shows the bass room resonance around 30Hz, the SPL kick at 140Hz is a KHorn design feature.
 
-To someone starting out there are questions like how do you measure, what are the amp to computer etc connections.
+
 DSP to amplifier setup.
 My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
 
-JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and a visual indicator of the volume level.
+JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was neede and aids the passive cooler.
 
-A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and fed to CamillaDSP for processing. The processed digital streams are converted to analog by the Motu Ultralite and balanced analog is fed to the amplifiers.
+A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and feeds CamillaDSP via USB for processing. JiveLite streams to CamillaDSP within the RPi5..
+The processed digital streams feed the Motu Ultralite via the USB and are converted to analog and balanced analog is fed to the amplifiers. The Motu has sockets for 1/4" TRS plugs (Tip Ring Screen) so I made sets of TRS to XLR cables although these are freely available commercially.
 
 A simple remote and a FLIRC provide source selection and volume control.
 
