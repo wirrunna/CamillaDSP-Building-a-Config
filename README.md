@@ -86,7 +86,7 @@ Measurements are taken with the tip of the microphone 1m from the centre of the 
 DSP to amplifier setup.
 My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
 
-JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was neede and aids the passive cooler.
+JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and the CamillaDSP GUI provides a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was neede and aids the passive cooler. The RPi connects to the screen with an HDMI cable and a USB for the touch function. Once connected it just works.
 
 A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and feeds CamillaDSP via USB for processing. JiveLite streams to CamillaDSP within the RPi5..
 The processed digital streams feed the Motu Ultralite via the USB and are converted to analog and balanced analog is fed to the amplifiers. The Motu has sockets for 1/4" TRS plugs (Tip Ring Screen) so I made sets of TRS to XLR cables although these are freely available commercially.
@@ -99,6 +99,35 @@ Pic of RPi display running CamillaDSP and JiveLite with remote in front.
 Pic of amps - bottom left N-Core for bass, top left SMSL headphone amp for Hi, top right Topping LA90 for mid and bottom right Motu UL5. The amp stands are plastic wire coated shelf stands from K-Mart and provide exellent air flow.
 ![alt text](<Images/Motu UL5 and amps.JPG>)
  
+### Getting Started with CamillaDSP *** Under construction ***
+I am assuming you have installed CamillaDSP according to Michael's tutorial. The easiest way to get it working is to download a config file from Michael's site.
+Once you have a RPi setup and CamillaDSP installed and running it is time to load your first config.
+*** CamillaDSP GUI with blank config
+, you should be able to get the GUI 
+
+
+* Connect Motu M4, download from Michael's tutorial configs for M4 stream and M4 analog.
+In CDSP GUI Files tab, first, click New blank config, then click Import Config and 
+
+*** Pic of Files tab with cursor on Import Config box
+
+*** Pic of Files Tab after clicking Import Config box
+
+Click the CamillaDSP Config box and navigate to the folder you downloaded the configs from the Tutorial and select the analog config.
+* message successful import, 
+*** Pic of Successful download
+then down to Enter a name for the new config
+*** Pic of new config dialog
+and click the disk icon to save it, then apply to GUI.
+
+Click the Pipeline tab and check the pipeline.
+
+ 
+
+
+find IP address, display in browser - local screen 127.0.0.1
+go to Files Tab.
+
 ### Measuring setup.
 1. Microphones.
 For measurement I use a Behringer ECM8000 mic connected to a Motu M4 audio interface, also there is a UMIC-1 connected to a second pc via USB. 
