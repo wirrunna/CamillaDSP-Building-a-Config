@@ -3,13 +3,17 @@
 
 The aim of this series is to show the procedure I followed to build a config file for a Linear Phase cross over for CamillaDSP to tri-amp a pair of modified Klipschorns. A secondary aim is to provide enough information for someone to follow the procedure to build a CamillaDSP config for their own speakers. 
 
-The key assumption in following this procedure is that the user can make REW measurements of their system and that implies that CamillaDSP is set up and working and the audio interface is connected to the amplifiers and speakers and the user can navigate the CamillaDSP GUI.
+The key assumption in following this procedure is that the user can make REW measurements of their system and that implies that CamillaDSP is set up and working and the audio interface is connected to the amplifiers and speakers and the user can navigate the CamillaDSP GUI on a browser on a laptop.
+
+REW, rePhase and the CamillaDSP GUI in a browser all run on the same laptop.
 
 CamillaDSP is running on a RPi5 and using a Motu Ultralight Mk5 audio interface as shown by  https://www.audiosciencereview.com/forum/index.php?threads/rpi4-camilladsp-tutorial.29656/
 
 This is not the only way to build a config, the methods and options I have chosen work for me.
 
 While not aiming to be another tutorial on using REW and rePhase, there are a lot of  measurements shown as screengrabs with the settings and some comments on the process and parameters. REW has excellent help and there are good tutorials on the web, rePhase also has some good tutorials on the web. 
+
+For day to day use, I run CamillaDSP on an RPi attached to a 10.1" screen showing the GUI and JiveLite streaming software.
 
 K-Horn with AK-3 . This is the starting point, passive XO, no mods bought new in 1990. 
 ![alt text](<Images/K-Horn measurement AK-3 passive xover.jpg>)
