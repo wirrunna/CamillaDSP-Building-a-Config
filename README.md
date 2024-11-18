@@ -137,20 +137,28 @@ go to Files Tab.
 REW is both a signal generator and measurement processing system.
 1. Signal Generator setup.
 This is where we define the sweep - frequency range, length of sweep and level.
-So with REW running on a PC we have to get the signal to CamillaDSP and routed to the amplifier / speaker. Two basic options, an anolog signal into the USB Audio Interface or a digital signal straight to the Raspberry Pi running CamillaDSP.
+
+So with REW running on a PC we have to get the signal to CamillaDSP and routed to the amplifier / speaker. 
+Two basic options, an anolog signal into the USB Audio Interface or a digital signal straight to the Raspberry Pi running CamillaDSP.
+
 a. Analog signal -
 PC Headset out to a splitter then unbalanced to the Motu M4 via a RCA to TRS cable. Be sure to turn off all enhanced audio if you use this.
 USB DAC connected to the PC, then analog out to the Motu M4.
+
 b. Digital - 
 USB to Gadget Mode on the RPi. The best way as the signal stays in the digital domain. I used the config in the guide.
+
 https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadget-optional
+
 It took several swaps of USB cables before I found one that worked.
 
 *** Need screenshot of REW Pref setup for Gadget Mode and UMIC-1
 
 2. Microphones.
 For measurement the simplest is a UMIC-1 connected via USB. 
-I also use a Behringer ECM8000 mic connected to an XLR microphone input on a Motu M4 audio interface as the balanced analog mic is supposedly more accurate for phase measurement. 
+
+I also use a Behringer ECM8000 mic connected to an XLR microphone input on a Motu M4 audio interface as the balanced analog mic is supposedly more accurate for phase measurement.
+
 This pic shows the two mics in a retort stand in front of the right K-Horn, dog bed reflection absorber on the floor between the speaker and the mics.
 ![alt text](<Images/K-Horn with mics.JPG>) 
 
