@@ -143,6 +143,7 @@ Two basic options, an anolog signal into the USB Audio Interface or a digital si
 
 a. Analog signal -
 PC Headset out to a splitter then unbalanced to the Motu M4 via a RCA to TRS cable. Be sure to turn off all enhanced audio if you use this.
+
 USB DAC connected to the PC, then analog out to the Motu M4.
 
 b. Digital - 
