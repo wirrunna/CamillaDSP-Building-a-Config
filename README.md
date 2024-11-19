@@ -153,7 +153,10 @@ https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadge
 
 It took several swaps of USB cables before I found one that worked.
 
-*** Need screenshot of REW Pref setup for Gadget Mode and UMIC-1
+*** Screenshot of REW Pref setup for Gadget Mode and UMIC-1
+
+![alt text](<Images/REW to Gadget ModeRPi.jpg>)
+
 
 2. Microphones.
 For measurement the simplest is a UMIC-1 connected via USB. 
