@@ -156,6 +156,8 @@ https://littlebirdelectronics.com.au/products/high-quality-type-c-otg-adapter-sp
 and plugged the RPi power into the USB C female, then the USB C male into the power input USB C on the RPi 5. I tried several cables and had success with a USB A to USB A cable and a USB C cable to USB A.
 When using USB interfaces in REW there is no need to calibrate the interface (REW Help, Getting set up for measuring).
 
+![alt text](<Images/RPi Gadget connection.jpg>)
+
 *** Screenshot of REW Pref setup for Gadget Mode and UMIC-1
 
 ![alt text](<Images/REW to Gadget ModeRPi.jpg>)
