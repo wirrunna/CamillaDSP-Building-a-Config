@@ -214,6 +214,10 @@ Flat Excess Phase is still a contentious issue so I have provided a couple of li
 
 Thank you Henrik for CamillaDSP and Michael for his tutorial on setting up Camilla on a Raspberry Pi and a Motu Ultralight Mk 5. Thanks also to Cask05 for help with REW in my early days of coming to grips with DSP.
 
+WinSCP - this utility is excellent for looking at the RPi files from a windows laptop. Well worth downloading and installing, and configuring as shown below will allow editing and saving of files - and deleting, so be careful.
+
+![alt text](<Images/WinSCP setup.jpg>)
+
 Links :
 
 https://www.roomeqwizard.com/
