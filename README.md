@@ -139,7 +139,7 @@ REW is both a signal generator and measurement processing system.
 This is where we define the sweep - frequency range, length of sweep and level.
 
 So with REW running on a PC we have to get the signal to CamillaDSP and routed to the amplifier / speaker. 
-Two basic options, an anolog signal into the USB Audio Interface or a digital signal straight to the Raspberry Pi running CamillaDSP.
+Two basic options, an anolog signal out of the headset jack into an anolog input on the USB Audio Interface or a digital signal straight to the Raspberry Pi running CamillaDSP.
 
 a. Analog signal -
 PC Headset out to a splitter then unbalanced to the Motu M4 via a RCA to TRS cable. Be sure to turn off all enhanced audio if you use this.
@@ -147,11 +147,14 @@ PC Headset out to a splitter then unbalanced to the Motu M4 via a RCA to TRS cab
 USB DAC connected to the PC, then analog out to the Motu M4.
 
 b. Digital - 
-USB to Gadget Mode on the RPi. The best way as the signal stays in the digital domain. I used the config in the guide.
+USB from the PC to USB on the RPi with "Gadget Mode" set. This is the best way as the signal stays in the digital domain. I used the config in the guide.
 
 https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadget-optional
 
-It took several swaps of USB cables before I found one that worked.
+I used this cable
+https://littlebirdelectronics.com.au/products/high-quality-type-c-otg-adapter-splitter-usb-c-female-and-usb-a-female?_pos=6&_sid=22eb9761f&_ss=r
+and plugged the RPi power into the USB C female, then the USB C male into the power input USB C on the RPi 5. I tried several cables and had success with a USB A to USB A cable and a USB C cable to USB A.
+When using USB interfaces in REW there is no need to calibrate the interface (REW Help, Getting set up for measuring).
 
 *** Screenshot of REW Pref setup for Gadget Mode and UMIC-1
 
