@@ -60,39 +60,27 @@ Here are some REW plots showing where I got to.
 *** REW plot showing Impulse (Step Response)
 ![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs Impulse - Step Response.jpg>)
 
-### First a description of the equipment and room.
+### Klipschorns and room.
 
-Klipschorns are vintage horn loaded speakers with low distortion and high efficiency, however due to different horn lengths there are driver time alignment differences  and the folded bass horn results in a lumpy SPL response making them ideal candidates for a tri-amped DSP system smoothing SPL responses, time aligning the drivers, providing crossover networks and flattening driver phase response.
+Klipschorns are heritage horn loaded speakers with low distortion and high efficiency, however due to different horn lengths there are driver time alignment differences  and the folded bass horn results in a lumpy SPL response making them ideal candidates for a tri-amped DSP system smoothing SPL responses, time aligning the drivers, providing crossover networks and flattening driver phase response.
 
 The stock Klipsch bass horn is about 105db/W and response falls of after 400Hz.
 
 My K-Horn mods are a new top hat using B&C DCX464 coax mid/hi drivers mounted on an Eliptrac horn. The B&C DCX464 is a 111db/W 1.4" compression horn with a 290-20,000Hz response, the Eliptrac horn is an eliptical tractrix kit horn with a Fc of 320Hz made from CNC machined MDF and was designed as a replacement for the K400 mid horn in Klipsch heritage speakers. One advantage of using a coax from a seperate tweeter is that the mid and hi use the same delay for time alignment. Due to horn length the mid and hi are delayed by 5 msec (far more than a standard 3 driver box) and I show how to determine this and the DSP filters required for time alignment.
 
-I am using CamillaDSP with two configurations, one for analog input and the second for streamed content through JiveLite running on the same RPi as CamillaDSP. Switching between the inputs and volume control is done by a remote as detailed in the rpi4-camilladsp-tutorial.
-
-REW measurements showed some difference between phase response on the digital (streamed) and analog inputs. I measured the streamed digital response according to REW Help, Making Measurements, Measuring with file playback. 
-
-The outputs from the Motu UL5/RPi are balanced analog and feed a single stereo Audiophonics MPA-S125NC 75W N-Core amp for left and right K-Horn bass, a Topping LA90 50W for mid and a SMSL SH9 THX Headphone amp for hi. The nominally 16ohm (tests show 12ohm) B&C DCX are 111db/W and the SH9 will put out 6W into 16ohm and 9W into 8ohm. More than enough power for a domestic system remembering that there are no passive crossovers sucking power. Also, these amps and the Motu UL5 and Raspberry Pi cost about half what I spent a few years ago building an ALK passive steep slope crossovers.
-
-For the analog input measurements I use a Behringer ECM8000 measurement condenser mic that connects with an XLR plug to a Motu M4 audio interface. I use loopback in the M4 to provide reference timing. A miniDSP UMIC will work just as well with acoustic timing for reference, an advantage of the Behringer and Motu M4 is that I can also use Open Sound Meter, a disadvantage is that I must calibrate the sound level of the Behringer each measurement session.
-
-
-For the didgital stream measurements I use a miniDSP UMIC and the REW acoustic timing reference recorded on the sweep.
-Software used is REW V5.30.x and Rephase 1.4.3 . I run all this on Win 11 on an Asus Zenbook laptop. The CamillaDSP RPi5 is on the LAN and its GUI is accessed via Firefox browser. The GUI is used to transfer filters from the Laptop to CamillaDSP on the RPi 5. Both CamillaDSP and my laptop are on a LAN.
-
-Measurements are taken with the tip of the microphone 1m from the centre of the Eliptrac horn which is 118cm off the floor. This microphone position is generally accepted in the Klipsch community for measuring K-Horns as it all but eliminates room reflections. The listening room is 6.5m wide by 10.8m long with 2.6m ceiling. The flooring is polished hardwood with extensive rug covering; couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
+The listening room is 6.5m wide by 10.8m long with 2.6m ceiling, kitchen and dining area at one end, speakers, TV and heater at the other. The flooring is polished hardwood with extensive rug covering; couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
 
 *** Photo of K-Horns and Mics.
 ![alt text](<Images/K-Horn with mics.JPG>)
 
 
 
-DSP to amplifier setup.
-My primary source is music streamed from my Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
+### DSP to amplifier setup.
+My primary source is music streamed from a Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
 
-JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and the CamillaDSP GUI provides a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was neede and aids the passive cooler. The RPi connects to the screen with an HDMI cable and a USB for the touch function. Once connected it just works.
+JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and the CamillaDSP GUI provides a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was needed and aids the passive cooler. The RPi connects to the screen with an HDMI cable and a USB for the touch function. Once connected it just works.
 
-A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and feeds CamillaDSP via USB for processing. JiveLite streams to CamillaDSP within the RPi5..
+A Motu UltraLite Mk5 USB audio interface provides I/O and converts TV analog to digital and feeds CamillaDSP via USB for processing. JiveLite streams to CamillaDSP within the RPi5.
 The processed digital streams feed the Motu Ultralite via the USB and are converted to analog and balanced analog is fed to the amplifiers. The Motu has sockets for 1/4" TRS plugs (Tip Ring Screen) so I made sets of TRS to XLR cables although these are freely available commercially.
 
 A simple remote and a FLIRC provide source selection and volume control.
@@ -100,80 +88,31 @@ A simple remote and a FLIRC provide source selection and volume control.
 Pic of RPi display running CamillaDSP and JiveLite with remote in front.
 ![alt text](<Images/10.1 screen front on shelf.jpg>)
 
-Pic of amps - bottom left N-Core for bass, top left SMSL headphone amp for Hi, top right Topping LA90 for mid and bottom right Motu UL5. The amp stands are plastic wire coated shelf stands from K-Mart and provide exellent air flow.
+Pic of amps - bottom left N-Core for bass, top left SMSL SH9 THX Headphone amp for Hi, top right Topping LA90 for mid and bottom right Motu UL5. The amp stands are plastic wire coated shelf stands from K-Mart and provide exellent air flow.
 ![alt text](<Images/Motu UL5 and amps.JPG>)
  
-### Getting Started with CamillaDSP *** Under construction ***
-I am assuming you have installed CamillaDSP according to Michael's tutorial. The easiest way to get it working is to download a config file from Michael's site.
-Once you have a RPi setup and CamillaDSP installed and running it is time to load your first config.
-*** CamillaDSP GUI with blank config
-, you should be able to get the GUI 
-
-
-* Connect Motu M4, download from Michael's tutorial configs for M4 stream and M4 analog.
-In CDSP GUI Files tab, first, click New blank config, then click Import Config and 
-
-*** Pic of Files tab with cursor on Import Config box
-
-*** Pic of Files Tab after clicking Import Config box
-
-Click the CamillaDSP Config box and navigate to the folder you downloaded the configs from the Tutorial and select the analog config.
-* message successful import, 
-*** Pic of Successful download
-then down to Enter a name for the new config
-*** Pic of new config dialog
-and click the disk icon to save it, then apply to GUI.
-
-Click the Pipeline tab and check the pipeline.
-
- 
-
-
-find IP address, display in browser - local screen 127.0.0.1
-go to Files Tab.
 
 ### Measuring setup with REW.
 
 REW is both a signal generator and measurement processing system.
-1. Signal Generator setup.
+1. REW output setup.
 This is where we define the sweep - frequency range, length of sweep and level.
 
 So with REW running on a PC we have to get the signal to CamillaDSP and routed to the amplifier / speaker. 
-Two basic options, an anolog signal out of the headset jack into an anolog input on the USB Audio Interface or a digital signal straight to the Raspberry Pi running CamillaDSP.
 
-a. Analog signal -
-PC Headset out to a splitter then unbalanced to the Motu M4 via a RCA to TRS cable. Be sure to turn off all enhanced audio if you use this.
+Two basic options, an analog signal out of the headset jack into an analog input on the USB Audio Interface or a digital signal via USB straight to the Raspberry Pi running CamillaDSP. 
 
-USB DAC connected to the PC, then analog out to the Motu M4.
+To use the USB method the Raspberry Pi has to be configured as a USB end point which in Raspberry Pi land is called Gadget Mode. This is the best way as the signal stays in the digital domain. I used the config and the USB-C power/data splitter in the guide.
+https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadget-optional with the addition of 48000 capture rate to the cs_rate parameter as that will allow both the output and input to be configured in Exclusive mode.  
 
-b. Digital - 
-USB from the PC to USB on the RPi with "Gadget Mode" set. This is the best way as the signal stays in the digital domain. I used the config in the guide.
-
-https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadget-optional
-
-I used this cable
-https://littlebirdelectronics.com.au/products/high-quality-type-c-otg-adapter-splitter-usb-c-female-and-usb-a-female?_pos=6&_sid=22eb9761f&_ss=r
-and plugged the RPi power into the USB C female, then the USB C male into the power input USB C on the RPi 5. I tried several cables and had success with a USB A to USB A cable and a USB C cable to USB A.
-When using USB interfaces in REW there is no need to calibrate the interface (REW Help, Getting set up for measuring).
-
-![alt text](<Images/RPi Gadget connection.jpg>)
+When using USB interfaces in REW there is no need to calibrate the interface (see REW Help, Getting set up for measuring).
 
 *** Screenshot of REW Pref setup for Gadget Mode and UMIC-1
-
-![alt text](<Images/REW to Gadget ModeRPi.jpg>)
+![alt text](<Images/Gadget Mode REW output device selection 48k.jpg>)
 
 
 2. Microphones.
-For measurement the simplest is a UMIC-1 connected via USB. 
-
-I also use a Behringer ECM8000 mic connected to an XLR microphone input on a Motu M4 audio interface as the balanced analog mic is supposedly more accurate for phase measurement.
-
-This pic shows the two mics in a retort stand in front of the right K-Horn, dog bed reflection absorber on the floor between the speaker and the mics.
-![alt text](<Images/K-Horn with mics.JPG>) 
-
-This pic is of the two pcs with the Motu M4, speaker under measurement in the background.
-![alt text](<Images/K-Horn with measurement PCs.JPG>) 
-
+For measurement the simplest is a Umik-1 connected via USB. 
 
 Setting up for Umik-1 USB mic.
 REW prefs for Umik-1, first in the 'Soundcard' tab select your microphone. 
@@ -185,27 +124,16 @@ In the 'Cal files' tab select the Umik-1 calibration file, then in the 'Analysis
 Finally, in the 'Equaliser' tab select CamillaDSP which REW will use to determine the number of IIR filters for EQ and the behaviour of the save files routines to suit CamillaDSP.
 ![alt text](<Images/REW Prefs - Equaliser.jpg>)
 
-Seting up for Behringer ECM8000 mic.
-Motu M4 front connections, IN1 - Loopback cable TRS plug, IN2 - Mic via XLR plug.
-![alt text](<Images/Motu m4 front.JPG>)
 
-and back showing Line Out TRS sockets - 3L Loopback cable to Front, 4R TRS to Motu Ultralight Mk5 / CamillaDSP and USB to PC.
-![alt text](<Images/Motu M4 back.JPG>) 
-
-In REW Preferences, Soundcard 
-and Analysis - note Adjust clock with loopback ticked
- 
-
-2. CamillaDSP
-In CamillaDSP I load a config with no filters, the analog TRS plug from the Motu M4 goes into ch2 for Left or ch3 for Right
+ 3. CamillaDSP
 
 The Pipeline -
- 
-UL5 analog - Blank.yml.jpg
+![alt text](<Images/REW UL5 Gadget in - pipeline.jpg>)
+
+
 and in the Mixer I mute all outputs except the one I am measuring.
  
-CamillaDSP showing muted channels with "destination 3" (channel 3) open for measuring.jpg
-
+Images/UL5 Gadget in Mixer.jpg
 
 
 
@@ -214,7 +142,7 @@ Flat Excess Phase is still a contentious issue so I have provided a couple of li
 
 Thank you Henrik for CamillaDSP and Michael for his tutorial on setting up Camilla on a Raspberry Pi and a Motu Ultralight Mk 5. Thanks also to Cask05 for help with REW in my early days of coming to grips with DSP.
 
-WinSCP - this utility is excellent for looking at the RPi files from a windows laptop. Well worth downloading and installing, and configuring as shown below will allow editing and saving of files - and deleting, so be careful.
+WinSCP - this utility is excellent for looking at the RPi files from a windows laptop. Well worth downloading installing and configuring as shown below will allow editing and saving of files - and deleting, so be careful.
 
 ![alt text](<Images/WinSCP setup.jpg>)
 
