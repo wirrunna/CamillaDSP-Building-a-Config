@@ -70,10 +70,6 @@ My K-Horn mods are a new top hat using B&C DCX464 coax mid/hi drivers mounted on
 
 The listening room is 6.5m wide by 10.8m long with 2.6m ceiling, kitchen and dining area at one end, speakers, TV and heater at the other. The flooring is polished hardwood with extensive rug covering; couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
 
-*** Photo of K-Horns and Mics.
-![alt text](<Images/K-Horn with mics.JPG>)
-
-
 
 ### DSP to amplifier setup.
 My primary source is music streamed from a Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
