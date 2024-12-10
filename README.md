@@ -116,12 +116,8 @@ The Pipeline -
 ![alt text](<Images/REW UL5 Gadget in - pipeline.jpg>)
 
 
-and in the Mixer I mute all outputs except the one I am measuring.
- 
-Images/UL5 Gadget in Mixer.jpg
-
-
-
+and in the Mixer I mute all outputs except the one I am measuring. 
+![alt text](<Images/UL5 Gadget in Mixer.jpg>)
 
 Flat Excess Phase is still a contentious issue so I have provided a couple of links for reading.
 
