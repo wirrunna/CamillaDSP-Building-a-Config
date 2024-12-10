@@ -138,6 +138,7 @@ https://www.avnirvana.com/forums/official-rew-room-eq-wizard-support-forum.10/
 https://rephase.org/
 
 https://winscp.net/eng/download.php
+https://winscp.net/eng/docs/guides
 
 https://community.klipsch.com/index.php?/topic/117543-active-bi-ampingtri-amping-faq/#comments
 
