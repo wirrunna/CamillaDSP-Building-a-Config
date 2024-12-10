@@ -93,11 +93,6 @@ Pic of amps - bottom left N-Core for bass, top left SMSL SH9 THX Headphone amp f
  
 
 ### Measuring setup with REW.
-
-REW is both a signal generator and measurement processing system.
-1. REW output setup.
-This is where we define the sweep - frequency range, length of sweep and level.
-
 So with REW running on a PC we have to get the signal to CamillaDSP and routed to the amplifier / speaker. 
 
 Two basic options, an analog signal out of the headset jack into an analog input on the USB Audio Interface or a digital signal via USB straight to the Raspberry Pi running CamillaDSP. 
@@ -111,21 +106,15 @@ When using USB interfaces in REW there is no need to calibrate the interface (se
 ![alt text](<Images/Gadget Mode REW output device selection 48k.jpg>)
 
 
-2. Microphones.
-For measurement the simplest is a Umik-1 connected via USB. 
-
-Setting up for Umik-1 USB mic.
-REW prefs for Umik-1, first in the 'Soundcard' tab select your microphone. 
-![alt text](<Images/REW Prefs for UMIC Analysis.jpg>) 
-
 In the 'Cal files' tab select the Umik-1 calibration file, then in the 'Analysis' tab set these defaults.
-![alt text](<Images/REW Prefs for UMIC Soundcard.jpg>)
+ 
+![alt text](<Images/REW Prefs for UMIC Analysis.jpg>) 
  
 Finally, in the 'Equaliser' tab select CamillaDSP which REW will use to determine the number of IIR filters for EQ and the behaviour of the save files routines to suit CamillaDSP.
 ![alt text](<Images/REW Prefs - Equaliser.jpg>)
 
 
- 3. CamillaDSP
+ CamillaDSP
 
 The Pipeline -
 ![alt text](<Images/REW UL5 Gadget in - pipeline.jpg>)
