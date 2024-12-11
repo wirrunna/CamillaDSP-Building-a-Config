@@ -87,6 +87,10 @@ Pic of RPi display running CamillaDSP and JiveLite with remote in front.
 Pic of amps - bottom left N-Core for bass, top left SMSL SH9 THX Headphone amp for Hi, top right Topping LA90 for mid and bottom right Motu UL5. The amp stands are plastic wire coated shelf stands from K-Mart and provide exellent air flow.
 ![alt text](<Images/Motu UL5 and amps.JPG>)
  
+Pic of amps - connector side - Topping LA90 and SMSL SH9 THX, Bobwire 12v Trigger, and the Motu UL5 underneath with TRS plugs for the three amps and TRS input plugs for analog in.
+![alt text](<Images/Amp and UL5 back.jpg>)
+
+The Bobwire 12v Trigger solves the problem of having to turn on 3 stereo amps everytime you play music. Use of the Bobwire is part of the RPi4-CamillaDSP-Tutorial https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#trigger-output
 
 ### Measuring setup with REW.
 So with REW running on a PC we have to get the signal to CamillaDSP and routed to the amplifier / speaker. 
