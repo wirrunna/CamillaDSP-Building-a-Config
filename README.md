@@ -11,23 +11,26 @@ CamillaDSP is running on a RPi5 and using a Motu Ultralight Mk5 audio interface 
 
 This is not the only way to build a config, the methods and options I have chosen work for me.
 
-While not aiming to be another tutorial on using REW and rePhase, there are a lot of  measurements shown as screengrabs with the settings and some comments on the process and parameters. REW has excellent help and there are good tutorials on the web, rePhase also has some good tutorials on the web. 
+While not aiming to be another tutorial on using REW and rePhase with CamillaDSP, there are a lot of  measurements shown as screengrabs with the settings and some comments on the process and parameters. REW has excellent help and there are good tutorials on the web, rePhase also has some good tutorials on the web. 
 
-For day to day use, I run CamillaDSP on an RPi attached to a 10.1" screen showing the GUI and JiveLite streaming software.
+For day to day use, I run CamillaDSP on an RPi mounted on the back of a 10.1" screen, this pic shows the CamillaDSP GUI and JiveLite streaming software.
 
-K-Horn with AK-3 . This is the starting point, passive XO, no mods bought new in 1990. 
+![alt text](<Images/10.1 screen pi running CDSP & JiveLite.jpg>)
+10.1 screen pi running CDSP & JiveLite.jpg
+
+Here is a REW measurement of my K-Horn with AK-3 passive crossover . This is the starting point, passive XO, no mods bought new in 1990. 
 ![alt text](<Images/K-Horn measurement AK-3 passive xover.jpg>)
 Frequency response like a stage of the Tour de France, phase, well just a few wraparounds.
 
-The basic procedure I followed is -
+The basic procedure I followed was -
 1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
-*** REW plots showing Raw and EQ corrected response for each driver with XO.
+*** REW plots showing Raw and EQ corrected response for each driver.
 ![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>)
 
-2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). Again, CamillaDSP can directly import rePhase .dbl files into the Config file.
+2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). CamillaDSP can import rePhase .dbl files direct to the Config file.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
 
@@ -41,7 +44,7 @@ https://github.com/wirrunna/CamillaDSP-Building-a-Config-3-Set-Gains-and-Delays
 *** REW plot showing cleaned up response after adding gain and delay filters.
 ![alt text](<Images/Dec 5 9 T31 84db Gains Biquads XOs 5ms delay and Inv Phase for Mid and Hi.jpg>)
 
-4. Extract a measurement of Excess Phase from a FS measurement and Export it for input to rePhase (thank you fluid). Using previously saved XO settings for mid and hi drivers, import the Excess Phase measurement into rePhase and manipulate the phase to get the Excess Phase close to zero. Replace the XO filter with the new XO and PF (Phase Fix) in the Pipeline. Measure FS to confirm o (zero) degree Excess Phase. As stated earlier, due to phase differences between analog and digital stream inputs I made seperate config files for analog input and stream input.
+4. Extract a measurement of Excess Phase from a FS measurement and Export it for input to rePhase (thank you fluid). Using previously saved XO settings for mid and hi drivers, import the Excess Phase measurement into rePhase and manipulate the phase to get the Excess Phase close to zero. Replace the XO filter with the new XO and PF (Phase Fix) in the Pipeline. Measure FS to confirm o (zero) degree Excess Phase.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-4-Get-Excess-Phase-to-Zero
 
@@ -68,11 +71,11 @@ The stock Klipsch bass horn is about 105db/W and response falls of after 400Hz.
 
 My K-Horn mods are a new top hat using B&C DCX464 coax mid/hi drivers mounted on an Eliptrac horn. The B&C DCX464 is a 111db/W 1.4" compression horn with a 290-20,000Hz response, the Eliptrac horn is an eliptical tractrix kit horn with a Fc of 320Hz made from CNC machined MDF and was designed as a replacement for the K400 mid horn in Klipsch heritage speakers. One advantage of using a coax from a seperate tweeter is that the mid and hi use the same delay for time alignment. Due to horn length the mid and hi are delayed by 5 msec (far more than a standard 3 driver box) and I show how to determine this and the DSP filters required for time alignment.
 
-The listening room is 6.5m wide by 10.8m long with 2.6m ceiling, kitchen and dining area at one end, speakers, TV and heater at the other. The flooring is polished hardwood with extensive rug covering; couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
+The listening room is 6.5m wide by 10.8m long with 2.6m ceiling (21 x 35.4 x 8.5 feet), kitchen and dining area at one end, speakers, TV and heater at the other. The flooring is polished hardwood with extensive rug covering; couches and soft furnishings also provide sound absorbtion. Walls are sheetrock drywall with curtained windows. Klipschorns are corner horns and the corner sheetrock was re-enforced during building with extra studs and structural ply to reduce flex as the corner wall is part of the bass horn. The floor immediately in front of the K-Horns is covered with large wooly dog beds to reduce reflection.
 
 
 ### DSP to amplifier setup.
-My primary source is music streamed from a Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog.
+My primary source is music streamed from a Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog. Jivelite is the GUI counterpart to Squeezelite that interacts with LMS to control the player streams and can be also be used to control remote players.
 
 JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and the CamillaDSP GUI provides a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was needed and aids the passive cooler. The RPi connects to the screen with an HDMI cable and a USB for the touch function. Once connected it just works.
 
@@ -98,7 +101,7 @@ So with REW running on a PC we have to get the signal to CamillaDSP and routed t
 Two basic options, an analog signal out of the headset jack into an analog input on the USB Audio Interface or a digital signal via USB straight to the Raspberry Pi running CamillaDSP. 
 
 To use the USB method the Raspberry Pi has to be configured as a USB end point which in Raspberry Pi land is called Gadget Mode. This is the best way as the signal stays in the digital domain. I used the config and the USB-C power/data splitter in the guide.
-https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadget-optional with the addition of 48000 capture rate to the cs_rate parameter as that will allow both the output and input to be configured in Exclusive mode.  
+https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#8-enable-usb-gadget-optional with the addition of 96000 capture rate to the cs_rate parameter.  
 
 When using USB interfaces in REW there is no need to calibrate the interface (see REW Help, Getting set up for measuring).
 
@@ -114,7 +117,7 @@ Finally, in the 'Equaliser' tab select CamillaDSP which REW will use to determin
 ![alt text](<Images/REW Prefs - Equaliser.jpg>)
 
 
- CamillaDSP
+CamillaDSP
 
 The Pipeline -
 ![alt text](<Images/REW UL5 Gadget in - pipeline.jpg>)
@@ -165,6 +168,31 @@ Link to development of the Eliptrac horn
 
 https://community.klipsch.com/index.php?/topic/122814-round-tractrix/
 
+camilladsp-controller
+Environment: RPi 5 running full desktop, username camilla, Output DAC8X, config file attached
+
+1. Install pyalsa :
+sudo apt install python3-pyalsa
+
+2. Re-install venv with the new system package pyalsa :
+python -m venv --system-site-packages ~/camilladsp/.venv
+
+3. Install camilladsp-controller :
+
+git clone https://github.com/HEnquist/camilladsp-controller ~/camilladsp/camilladsp-controller
 
 
+4. Modify a working config that has a resampler by appending _{samplerate} to the name of the .yaml file -
+for example config file "Gin_96k_DAC8X_out_Blank.yml" becomes "Gin_96k_DAC8X_out_Blank_96000.yml"
+
+5. Run command for camilladsp-controller in ADAPT mode where it will adapt an existing config for other sample rates :
+
+/home/camilla/camilladsp/.venv/bin/python3 /home/camilla/camilladsp/camilladsp-controller/controller.py -d hw:UAC2Gadget -p 1234 -a /home/camilla/camilladsp/configs/Gin_96k_DAC8X_out_Blank_96000.yml
+
+
+
+
+Notes: CamillaDSP must be running, at least in the "running" or "stalled" state before you run the controller.
+
+I run camilladsp-controller in a Putty terminal window
 
