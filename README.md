@@ -23,12 +23,14 @@ Here is a REW measurement of my K-Horn with AK-3 passive crossover . This is the
 Frequency response like a stage of the Tour de France, phase, well just a few wraparounds.
 
 The basic procedure I followed was -
-1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
+1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. 
+Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
-*** REW plots showing Raw and EQ corrected response for each driver.
-![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>)
+REW plot showing Raw and EQ corrected response for each driver.
+![alt text](<Images/Bass Mid Hi raw EQ.jpg>)
+Bass Mid Hi raw EQ.jpg
 
 2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). CamillaDSP can import rePhase .dbl files direct to the Config file.
 
