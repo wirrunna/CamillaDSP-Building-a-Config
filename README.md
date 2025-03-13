@@ -15,41 +15,46 @@ While not aiming to be another tutorial on using REW and rePhase with CamillaDSP
 
 For day to day use, I run CamillaDSP on an RPi mounted on the back of a 10.1" screen, this pic shows the CamillaDSP GUI and JiveLite streaming software.
 
-![alt text](<Images/10.1 screen pi running CDSP & JiveLite.jpg>)
-10.1 screen pi running CDSP & JiveLite.jpg
+![alt text](<Images/Pi Screen CDSP V3 and Jivelite.jpg>)
+Pi Screen CDSP V3 and Jivelite.jpg
+
 
 Here is a REW measurement of my K-Horn with AK-3 passive crossover . This is the starting point, passive XO, no mods bought new in 1990. 
 ![alt text](<Images/K-Horn measurement AK-3 passive xover.jpg>)
 Frequency response like a stage of the Tour de France, phase, well just a few wraparounds.
 
 The basic procedure I followed was -
-1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format while CamillaDSP GUI can import the REW measurements direct to the Config file).
+1. Measure drivers using REW and use REW EQ to calculate EQ settings for a flat frequency response using 1/6 smoothing. Add the EQs to the Pipeline in CamillaDSP (REW has added the function to save EQ filters in CamillaDSP format so that the CamillaDSP GUI can import the REW PEQ filters direct to the Config file).
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
 
-*** REW plots showing Raw and EQ corrected response for each driver.
-![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>)
+Here is a rather busy REW plot showing Raw and EQ corrected SPL response for each driver.
+![alt text](<Images/REW V5.40 Bass Mid Hi raw EQ.jpg>)
+REW V5.40 Bass Mid Hi raw EQ.jpg
 
-2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). CamillaDSP can import rePhase .dbl files direct to the Config file.
+2. Set initial Linear Phase XOs in Rephase and add to the Pipeline in CamillaDSP and measure response of individual drivers and Full System 20-20,000Hz (FS). CamillaDSP can import rePhase .dbl files direct to the Config file. Save rePhase settings for each driver for later phase manipulation.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
 
-*** Rew plots showing XO response and full system (FS) response
-![alt text](<Images/Dec 5 5 T31 81db Fs 20-20kHz Biquads and XOs.jpg>)
+Here is a REW plot showing each driver XO SPL response.
+![alt text](<Images/REW V5.40 Bass Mid Hi EQ XO.jpg>)
+REW V5.40 Bass Mid Hi EQ XO.jpg
 
 3. Using FS measurements, determine gains for each driver to match levels and add gain filters to the CamillaDSP pipeline. Determine delays for each driver and add delay filters to the pipeline and measure FS to confirm correct delays and gains. Invert driver phase if needed. Adjust XO frequencies and slopes to give the smoothest summed result while taking advantage of "acoustic crossover" of the horn drivers.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-3-Set-Gains-and-Delays
 
-*** REW plot showing cleaned up response after adding gain and delay filters.
-![alt text](<Images/Dec 5 9 T31 84db Gains Biquads XOs 5ms delay and Inv Phase for Mid and Hi.jpg>)
+REW plot showing cleaned up response after adding gain and delay filters.
+![alt text](<Images/REW V5.40 Full System with gains and delay.jpg>)
+REW V5.40 Full System with gains and delay.jpg
 
 4. Extract a measurement of Excess Phase from a FS measurement and Export it for input to rePhase (thank you fluid). Using previously saved XO settings for mid and hi drivers, import the Excess Phase measurement into rePhase and manipulate the phase to get the Excess Phase close to zero. Replace the XO filter with the new XO and PF (Phase Fix) in the Pipeline. Measure FS to confirm o (zero) degree Excess Phase.
 
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-4-Get-Excess-Phase-to-Zero
 
-*** REW plot of Full System with PF flat phase
-![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs.jpg>)
+REW plot of Full System with Phase Fix (PF) to get flat minimum phase.
+![alt text](<Images/REW V5.40 Full System with gains and delay and Phase Fix.jpg>)
+REW V5.40 Full System with gains and delay and Phase Fix.jpg
 
 5. Add the finishing touches by doing another EQ of the full system to flatten SPL peaks and troughs across the cross over regions. Show how to use the CamillaDSP Bass and Treble filters to provide a room curve.
 
@@ -57,11 +62,19 @@ https://github.com/wirrunna/CamillaDSP-Building-a-Config-5-Finishing-Touches
 
 Here are some REW plots showing where I got to.
 
-*** REW plot of working config including EQ on the inputs
-![alt text](<Images/Jun 23 5 T45_A67 FS 77db new pf input peqs.jpg>)
+REW SPL plot of working config including EQ on the inputs
+![alt text](<Images/REW V5.40 Full System with PF and Input Peqs.jpg>)
+REW V5.40 Full System with PF and Input Peqs.jpg
 
-*** REW plot showing Impulse (Step Response)
-![alt text](<Images/Jun 23 2 T44_A67 new pf - no input peqs Impulse - Step Response.jpg>)
+![alt text](<Images/REW V5.40 FS Group Delay (GD).jpg>)
+REW V5.40 FS Group Delay (GD).jpg
+
+![alt text](<Images/REW V5.40 FS Impulse  Step Response.jpg>)
+REW V5.40 FS Impulse  Step Response.jpg
+
+![alt text](<Images/REW V5.40 FS Spectrogram.jpg>)
+REW V5.40 FS Spectrogram.jpg
+
 
 ### Klipschorns and room.
 
@@ -85,13 +98,20 @@ The processed digital streams feed the Motu Ultralite via the USB and are conver
 A simple remote and a FLIRC provide source selection and volume control.
 
 Pic of RPi display running CamillaDSP and JiveLite with remote in front.
-![alt text](<Images/10.1 screen front on shelf.jpg>)
+![alt text](<Images/Pi Screen Front on shelf.jpg>)
+Pi Screen Front on shelf.jpg
+
+Pi screen back showing RPi on Vesa mount with passive cooler.
+![alt text](<Images/Pi Screen back showing Vesa mount.JPG>)
+Pi Screen back showing Vesa mount.JPG 
 
 Pic of amps - bottom left N-Core for bass, top left SMSL SH9 THX Headphone amp for Hi, top right Topping LA90 for mid and bottom right Motu UL5. The amp stands are plastic wire coated shelf stands from K-Mart and provide exellent air flow.
 ![alt text](<Images/Motu UL5 and amps.JPG>)
- 
+ Motu UL5 and amps.JPG
+
 Pic of amps - connector side - Topping LA90 and SMSL SH9 THX, Bobwire 12v Trigger, and the Motu UL5 underneath with TRS plugs for the three amps and TRS input plugs for analog in.
 ![alt text](<Images/Amp and UL5 back.jpg>)
+Amp and UL5 back.jpg
 
 The Bobwire 12v Trigger solves the problem of having to turn on 3 stereo amps everytime you play music. Use of the Bobwire is part of the RPi4-CamillaDSP-Tutorial https://github.com/mdsimon2/RPi-CamillaDSP?tab=readme-ov-file#trigger-output
 
@@ -121,15 +141,16 @@ CamillaDSP
 
 The Pipeline -
 ![alt text](<Images/REW UL5 Gadget in - pipeline.jpg>)
-
+REW UL5 Gadget in - pipeline.jpg
 
 and in the Mixer I mute all outputs except the one I am measuring. 
 ![alt text](<Images/UL5 Gadget in Mixer.jpg>)
-
+Images/UL5 Gadget in Mixer.jpg
 
 WinSCP - this utility is excellent for looking at the RPi files from a windows laptop. Well worth downloading installing and configuring as shown below will allow editing and saving of files - and deleting, so be careful.
 
 ![alt text](<Images/WinSCP setup.jpg>)
+Images/WinSCP setup.jpg
 
 Thank you Henrik for CamillaDSP and Michael for his tutorial on setting up Camilla on a Raspberry Pi and a Motu Ultralight Mk 5. Thanks also to Cask05 for help with REW in my early days of coming to grips with DSP.
 
