@@ -75,6 +75,23 @@ REW V5.40 FS Impulse  Step Response.jpg
 ![alt text](<Images/REW V5.40 FS Spectrogram.jpg>)
 REW V5.40 FS Spectrogram.jpg
 
+CamillaDSP has many options to "liven up" the music to get away from the clinical dead sound of a flat SPL.
+
+REW SPL of a -10db Tilt filter, works like a seesaw with 1,000Hz pivot point.
+![alt text](<Images/REW V5.40 FS Tilt -10db.jpg>)
+REW V5.40 FS Tilt -10db.jpg
+
+REW SPL of Bass and Treble control, Bass at +6 and Treble at +2. These controls are available on the Shortcuts tab.
+![alt text](<Images/REW V5.40 FS Bass+6 Treble +2.jpg>)
+REW V5.40 FS Bass+6 Treble +2.jpg
+
+![alt text](<Images/Pi Screen Shortcuts Tab.jpg>)
+Pi Screen Shortcuts Tab.jpg
+
+There is also a Loudness Control that performs loudness compensation in combination with the volume control.
+![alt text](<Images/REW V5.40 FS CDSP level -37db, -44db and -50db Bass 6 Treble 2 Loudness Hi boost +2 Lo boost +6 Ref Level -35.jpg>)
+REW V5.40 FS CDSP level -37db, -44db and -50db Bass 6 Treble 2 Loudness Hi boost +2 Lo boost +6 Ref Level -35.jpg
+
 
 ### Klipschorns and room.
 
