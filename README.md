@@ -206,31 +206,92 @@ Link to development of the Eliptrac horn
 
 https://community.klipsch.com/index.php?/topic/122814-round-tractrix/
 
-camilladsp-controller
+###camilladsp-controller
 Environment: RPi 5 running full desktop, username camilla, Output DAC8X, config file attached
 
 1. Install pyalsa :
+
+```
 sudo apt install python3-pyalsa
+```
 
 2. Re-install venv with the new system package pyalsa :
+
+```
 python -m venv --system-site-packages ~/camilladsp/.venv
+```
 
 3. Install camilladsp-controller :
 
+```
 git clone https://github.com/HEnquist/camilladsp-controller ~/camilladsp/camilladsp-controller
-
+```
 
 4. Modify a working config that has a resampler by appending _{samplerate} to the name of the .yaml file -
 for example config file "Gin_96k_DAC8X_out_Blank.yml" becomes "Gin_96k_DAC8X_out_Blank_96000.yml"
 
 5. Run command for camilladsp-controller in ADAPT mode where it will adapt an existing config for other sample rates :
 
+```
 /home/camilla/camilladsp/.venv/bin/python3 /home/camilla/camilladsp/camilladsp-controller/controller.py -d hw:UAC2Gadget -p 1234 -a /home/camilla/camilladsp/configs/Gin_96k_DAC8X_out_Blank_96000.yml
-
-
+```
 
 
 Notes: CamillaDSP must be running, at least in the "running" or "stalled" state before you run the controller.
 
-I run camilladsp-controller in a Putty terminal window
+I run camilladsp-controller in a Putty window
+
+
+
+### Installing Jivelite
+
+To save scrolling through the thread, first there is a link to the appropriate post, then the code steps.
+
+
+1.  https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
+From /home/camilla, execute :
+
+```
+sudo apt install -y build-essential git libluajit-5.1-dev libsdl1.2-dev libsdl-ttf2.0-dev libsdl-gfx1.2-dev libsdl-image1.2-dev libexpat1-dev
+```
+
+2. https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
+then execute :
+
+```
+cd
+mkdir luajit
+cd luajit
+git clone https://github.com/LuaJIT/LuaJIT.git
+cd LuaJIT
+make
+sudo make install
+sudo ldconfig
+cd
+git clone https://github.com/ralph-irving/jivelite
+cd jivelite
+sudo make PREFIX=/usr/local
+```
+
+Then reboot
+```
+sudo reboot
+```
+
+
+3. https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
+Make a menu entry on the RPi 5
+to /usr/share/applications , add a file "jivelite.desktop"
+
+```
+[Desktop Entry]
+Name=Jivelite
+GenericName=Music Player
+Comment=Xi Music Player
+Exec=/home/camilla/jivelite/bin/jivelite
+Icon=qjackctl
+Categories=Audio;AudioVideo;
+Terminal=false
+Type=Application
+```
 
