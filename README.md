@@ -154,7 +154,7 @@ Finally, in the 'Equaliser' tab select CamillaDSP which REW will use to determin
 ![alt text](<Images/REW Prefs - Equaliser.jpg>)
 
 
-CamillaDSP
+### CamillaDSP
 
 The Pipeline -
 ![alt text](<Images/REW UL5 Gadget in - pipeline.jpg>)
@@ -206,7 +206,7 @@ Link to development of the Eliptrac horn
 
 https://community.klipsch.com/index.php?/topic/122814-round-tractrix/
 
-###camilladsp-controller
+### camilladsp-controller
 Environment: RPi 5 running full desktop, username camilla, Output DAC8X, config file attached
 
 1. Install pyalsa :
@@ -280,8 +280,8 @@ sudo reboot
 
 
 3. https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
-Make a menu entry on the RPi 5
-to /usr/share/applications , add a file "jivelite.desktop"
+Make a menu entry on the RPi 5 in the Sound & Video, 
+to /usr/share/applications , add a file "jivelite.desktop" 
 
 ```
 [Desktop Entry]
