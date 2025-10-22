@@ -105,7 +105,7 @@ The listening room is 6.5m wide by 10.8m long with 2.6m ceiling (21 x 35.4 x 8.5
 
 
 ### DSP to amplifier setup.
-My primary source is music streamed from a Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog. Jivelite is the GUI counterpart to Squeezelite that interacts with LMS to control the player streams and can be also be used to control remote players.
+My primary source is music streamed from a Squeezebox Server (LMS) to software players running JiveLite, TV sound comes in as analog. Jivelite is the GUI counterpart to Squeezelite that interacts with LMS to control the player streams and can be also be used to control remote players.(Install instructions for Jivelite are in the appendix section at the end)
 
 JiveLite runs on the same Raspberry Pi that runs the CamillaDSP software and feeds CamillaDSP a digital stereo stream. The RPi5 is mounted on the back of a 10.1" touch screen that provides touch control of JiveLite and the CamillaDSP GUI provides a visual indicator of the volume level. The mounting of the RPi5 behind the screen meant no case was needed and aids the passive cooler. The RPi connects to the screen with an HDMI cable and a USB for the touch function. Once connected it just works.
 
@@ -206,7 +206,9 @@ Link to development of the Eliptrac horn
 
 https://community.klipsch.com/index.php?/topic/122814-round-tractrix/
 
-### camilladsp-controller
+## Appendix
+
+### 1. Install camilladsp-controller
 Environment: RPi 5 running full desktop, username camilla, Output DAC8X, config file attached
 
 1. Install pyalsa :
@@ -243,12 +245,13 @@ I run camilladsp-controller in a Putty window
 
 
 
-### Installing Jivelite
+### 2. Install Jivelite
 
 To save scrolling through the thread, first there is a link to the appropriate post, then the code steps.
 
 
 1.  https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
+
 From /home/camilla, execute :
 
 ```
@@ -256,6 +259,7 @@ sudo apt install -y build-essential git libluajit-5.1-dev libsdl1.2-dev libsdl-t
 ```
 
 2. https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
+
 then execute :
 
 ```
@@ -279,8 +283,7 @@ sudo reboot
 ```
 
 
-3. https://forums.lyrion.org/forum/user-forums/linux-unix/95254-announce-jivelite-cut-down-squeezebox-control-application?p=1751156#post1751156
-Make a menu entry on the RPi 5 in the Sound & Video, 
+3. Make a menu entry on the RPi 5 in the Sound & Video, 
 to /usr/share/applications , add a file "jivelite.desktop" 
 
 ```
